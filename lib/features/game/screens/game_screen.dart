@@ -6,13 +6,12 @@ import 'package:go_router/go_router.dart';
 import 'package:ludo_unbiased/app/theme/app_theme.dart';
 import 'package:ludo_unbiased/features/game/controllers/game_controller.dart';
 import 'package:ludo_unbiased/features/game/controllers/local_game_controller.dart';
-import 'package:ludo_unbiased/features/game/engine/legal_moves.dart';
 import 'package:ludo_unbiased/features/game/models/game_event.dart';
 import 'package:ludo_unbiased/features/game/models/game_state.dart';
 import 'package:ludo_unbiased/features/game/models/player.dart';
 import 'package:ludo_unbiased/features/game/providers/game_providers.dart';
 import 'package:ludo_unbiased/features/game/services/status_messages.dart';
-import 'package:ludo_unbiased/features/game/widgets/basic_board.dart';
+import 'package:ludo_unbiased/features/game/widgets/board_view.dart';
 
 /// The Game screen. Milestone 4 replaces the layout with the full design.
 class GameScreen extends ConsumerWidget {
@@ -108,9 +107,6 @@ class _GameViewState extends ConsumerState<_GameView> {
           valueListenable: c.state,
           builder: (context, s, _) {
             final mine = c.controlledColors.contains(s.currentColor);
-            final movable = mine
-                ? legalMoves(s).map((m) => m.tokenId).toSet()
-                : <int>{};
             return Padding(
               padding: const EdgeInsets.all(16),
               child: Column(
@@ -137,11 +133,7 @@ class _GameViewState extends ConsumerState<_GameView> {
                   const SizedBox(height: 12),
                   Expanded(
                     child: Center(
-                      child: BasicBoard(
-                        state: s,
-                        movable: movable,
-                        onTokenTap: c.requestMove,
-                      ),
+                      child: BoardView(controller: c),
                     ),
                   ),
                   const SizedBox(height: 12),

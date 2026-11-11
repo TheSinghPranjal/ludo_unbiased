@@ -35,7 +35,8 @@ void main() {
   ) async {
     final container = await pumpApp(tester, [3]);
     await tester.tap(find.byKey(const Key('quickPlay')));
-    await tester.pumpAndSettle();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
     expect(find.byKey(const Key('roll')), findsOneWidget);
     await tester.tap(find.byKey(const Key('roll')));
     await tester.pump();
@@ -64,7 +65,8 @@ void main() {
           .first,
     );
     await tester.tap(find.byKey(const Key('startGame')));
-    await tester.pumpAndSettle();
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
     final game = container.read(activeGameProvider)!;
     expect(game.state.value.players, hasLength(4));
     container.read(activeGameProvider.notifier).end();
