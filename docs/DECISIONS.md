@@ -38,4 +38,11 @@ One line per decision: date, decision, reason.
 - 2026-11-11: Avatars live in `images/cards` and How-to-Play art in `images/ui`. Keeps to the spec's folder list.
 - 2026-11-11: Card backgrounds are 190 × 88 9-slice images: a 174 × 72 card plus an 8 px glow margin. Identical sizes in every state, and the glow never shifts layout.
 - 2026-11-11: The timer ring is drawn by the app along the ring asset's path, tinted with the player colour. A static image cannot show progress.
+- 2026-11-11: The turn deadline lives in the controllers, not in `GameState`. The state stays clock-free, so equal moves give equal states and hashes everywhere.
+- 2026-11-11: Each colour's HOME is its own centre-triangle cell (Red 8,7; Blue 7,6; Yellow 6,7; Green 7,8). These are next to the end of each home column, so the last hop is one adjacent step.
+- 2026-11-11: No `passForTimeout` command. Timer expiry uses `roll` and then `timeoutMove`, which already cover every case.
+- 2026-11-11: Removing a player has no animation. Ending the game or passing the turn on removal takes effect immediately.
+- 2026-11-11: `Move.landsSafe` counts the home column as safe for the timeout policy and AI. Nothing can capture there.
+- 2026-11-11: Added a `PlayerReplacedByAi` event and a `noChange` rule error. "Replace leavers with AI" and connection updates needed them.
+- 2026-11-11: The three dice services share `services/dice_service.dart`. Each is a few lines and they share one interface.
 - 2026-11-11: Accept plain `ws://` for v1. TLS would need self-signed certificate handling on every client; the residual risk is LAN traffic capture.
