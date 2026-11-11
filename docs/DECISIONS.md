@@ -45,4 +45,7 @@ One line per decision: date, decision, reason.
 - 2026-11-11: `Move.landsSafe` counts the home column as safe for the timeout policy and AI. Nothing can capture there.
 - 2026-11-11: Added a `PlayerReplacedByAi` event and a `noChange` rule error. "Replace leavers with AI" and connection updates needed them.
 - 2026-11-11: The three dice services share `services/dice_service.dart`. Each is a few lines and they share one interface.
+- 2026-11-11: M2's board is a `CustomPainter` drawn from the board constants. It makes the local game playable before Flame lands in M3, where it is replaced.
+- 2026-11-11: `AppColors` and `BoardPalette` theme extensions were added in M2 rather than M4. The M2 screens already need colours, and the rule forbids hard-coding them.
+- 2026-11-11: Leaving a local game keeps its save, so Home offers Continue. The game is saved after every settle anyway.
 - 2026-11-11: Accept plain `ws://` for v1. TLS would need self-signed certificate handling on every client; the residual risk is LAN traffic capture.
