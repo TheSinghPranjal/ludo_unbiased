@@ -28,4 +28,14 @@ One line per decision: date, decision, reason.
 - 2026-11-11: Host addresses come from `NetworkInterface.list()`. `network_info_plus` misses the address on a device acting as the hotspot.
 - 2026-11-11: No background service for the host in v1; the host screen warns to stay in the app. A backgrounded host may be suspended by the OS.
 - 2026-11-11: Protocol adds `roomCode` on `Hello`, and `bad_room`, `kicked` and `rate_limited` errors. Required features had no message; `Pong` is per socket.
+- 2026-11-11: Phase 3 art was drawn without `ref/ludo_board_reference.png`, which was never provided. It follows the written direction in §5.1 and the §1.9 colours.
+- 2026-11-11: Wireframe defaults accepted: compact corner cards at 320 dp, dice on the active card, tap moves the first token and long-press picks, "Replace leavers with AI" off, timer ring plus a number in the last 10 s. Approved at the Phase 2 gate.
+- 2026-11-11: Light-mode safe-cell star is #7A8394 (3.82:1 on white). The first grey failed the 3:1 non-text minimum, and the star carries meaning.
+- 2026-11-11: Grid lines keep the spec's values (1.57:1 light, 1.30:1 dark) and are exempt from contrast checks as decorative. Cells stay distinguishable by fill and spacing.
+- 2026-11-11: Light-mode app UI colours, which the spec leaves open: bg #F4F5F9, surfaces #FFFFFF / #EEF0F6, text #1B1E28 / #596074, primary #2563C9. All text pairs pass AA.
+- 2026-11-11: Text inside art is converted to outlines with fontTools. The SVG renderer on macOS ignores private font configuration, so outlines make output identical on any machine.
+- 2026-11-11: Manifest `modes` adds "any" for mode-independent art (avatars, medals, FX, launcher masters). They look the same on either background.
+- 2026-11-11: Avatars live in `images/cards` and How-to-Play art in `images/ui`. Keeps to the spec's folder list.
+- 2026-11-11: Card backgrounds are 190 × 88 9-slice images: a 174 × 72 card plus an 8 px glow margin. Identical sizes in every state, and the glow never shifts layout.
+- 2026-11-11: The timer ring is drawn by the app along the ring asset's path, tinted with the player colour. A static image cannot show progress.
 - 2026-11-11: Accept plain `ws://` for v1. TLS would need self-signed certificate handling on every client; the residual risk is LAN traffic capture.

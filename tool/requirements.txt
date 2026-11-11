@@ -1,0 +1,3 @@
+# Python tools in tool/ (art, assets, audio, design pages)
+fonttools==4.55.3
+numpy==2.0.2

@@ -1,0 +1,4954 @@
+{
+ "palette": {
+  "light": {
+   "red": "#D9342B",
+   "blue": "#3E8EDE",
+   "yellow": "#ECCB3A",
+   "green": "#3D9142",
+   "board": "#DCE1E9",
+   "cell": "#FFFFFF",
+   "grid": "#C9CFD9",
+   "star": "#7A8394",
+   "frame": "#FFFFFF",
+   "inner": "#FFFFFF",
+   "bg": "#F4F5F9",
+   "surface": "#FFFFFF",
+   "surface2": "#EEF0F6",
+   "text": "#1B1E28",
+   "text2": "#596074",
+   "border": "#D6DAE3",
+   "primary": "#2563C9",
+   "on_primary": "#FFFFFF",
+   "danger": "#C42B23",
+   "on_danger": "#FFFFFF",
+   "shadow": "#141828",
+   "rim": null
+  },
+  "dark": {
+   "red": "#D03C34",
+   "blue": "#468ED6",
+   "yellow": "#E3C543",
+   "green": "#418D46",
+   "board": "#171A24",
+   "cell": "#232838",
+   "grid": "#343A4F",
+   "star": "#E6E8F0",
+   "frame": "#1D2030",
+   "inner": "#1D2030",
+   "bg": "#12141C",
+   "surface": "#1D2030",
+   "surface2": "#262A3C",
+   "text": "#F2F3F7",
+   "text2": "#A9AEC2",
+   "border": "#343A4F",
+   "primary": "#6EA6EE",
+   "on_primary": "#12141C",
+   "danger": "#EB6F67",
+   "on_danger": "#12141C",
+   "shadow": "#000000",
+   "rim": "#FFFFFF"
+  }
+ },
+ "assets": [
+  {
+   "id": "board_bg",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    720,
+    720
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Behind every cell; the gaps between cells read as grid lines."
+  },
+  {
+   "id": "board_cell",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_cell_safe_star",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_cell_start_red",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_home_column_red",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_yard_red",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    288,
+    288
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Slot centres at cell-corner points (2,2), (2,4), (4,2), (4,4) in cell units."
+  },
+  {
+   "id": "board_arrow_red",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Points up; Flame rotates it: Red 0\u00b0, Blue 90\u00b0, Yellow 180\u00b0, Green 270\u00b0."
+  },
+  {
+   "id": "board_cell_start_blue",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_home_column_blue",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_yard_blue",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    288,
+    288
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Slot centres at cell-corner points (2,2), (2,4), (4,2), (4,4) in cell units."
+  },
+  {
+   "id": "board_arrow_blue",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Points up; Flame rotates it: Red 0\u00b0, Blue 90\u00b0, Yellow 180\u00b0, Green 270\u00b0."
+  },
+  {
+   "id": "board_cell_start_yellow",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_home_column_yellow",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_yard_yellow",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    288,
+    288
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Slot centres at cell-corner points (2,2), (2,4), (4,2), (4,4) in cell units."
+  },
+  {
+   "id": "board_arrow_yellow",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Points up; Flame rotates it: Red 0\u00b0, Blue 90\u00b0, Yellow 180\u00b0, Green 270\u00b0."
+  },
+  {
+   "id": "board_cell_start_green",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_home_column_green",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_yard_green",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    288,
+    288
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Slot centres at cell-corner points (2,2), (2,4), (4,2), (4,4) in cell units."
+  },
+  {
+   "id": "board_arrow_green",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Points up; Flame rotates it: Red 0\u00b0, Blue 90\u00b0, Yellow 180\u00b0, Green 270\u00b0."
+  },
+  {
+   "id": "board_centre_home",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    144,
+    144
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "board_frame",
+   "group": "board",
+   "folder": "images/board",
+   "size": [
+    96,
+    96
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    30,
+    30,
+    30,
+    30
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "9-slice; the board sits inside with a 16 px inset at 1x."
+  },
+  {
+   "id": "token_red_idle",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "token_red_movable",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Pulse ring: Flame animates scale 1.0\u21921.12 and opacity."
+  },
+  {
+   "id": "token_red_selected",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "token_red_hop",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Lifted frame used at the top of each hop arc."
+  },
+  {
+   "id": "token_red_ghost",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Destination marker on the target cell."
+  },
+  {
+   "id": "token_blue_idle",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "token_blue_movable",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Pulse ring: Flame animates scale 1.0\u21921.12 and opacity."
+  },
+  {
+   "id": "token_blue_selected",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "token_blue_hop",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Lifted frame used at the top of each hop arc."
+  },
+  {
+   "id": "token_blue_ghost",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Destination marker on the target cell."
+  },
+  {
+   "id": "token_yellow_idle",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "token_yellow_movable",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Pulse ring: Flame animates scale 1.0\u21921.12 and opacity."
+  },
+  {
+   "id": "token_yellow_selected",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "token_yellow_hop",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Lifted frame used at the top of each hop arc."
+  },
+  {
+   "id": "token_yellow_ghost",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Destination marker on the target cell."
+  },
+  {
+   "id": "token_green_idle",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "token_green_movable",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Pulse ring: Flame animates scale 1.0\u21921.12 and opacity."
+  },
+  {
+   "id": "token_green_selected",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "token_green_hop",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Lifted frame used at the top of each hop arc."
+  },
+  {
+   "id": "token_green_ghost",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": "Destination marker on the target cell."
+  },
+  {
+   "id": "token_shadow",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Drawn under every token; offset and scaled during hops."
+  },
+  {
+   "id": "token_stack_badge_2",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Top-right of a 3\u20134 token cluster."
+  },
+  {
+   "id": "token_stack_badge_3",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Top-right of a 3\u20134 token cluster."
+  },
+  {
+   "id": "token_stack_badge_4",
+   "group": "tokens",
+   "folder": "images/tokens",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Top-right of a 3\u20134 token cluster."
+  },
+  {
+   "id": "dice_face_1",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "dice_face_2",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "dice_face_3",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "dice_face_4",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "dice_face_5",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "dice_face_6",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "how_to_play"
+   ],
+   "notes": null
+  },
+  {
+   "id": "dice_roll_01",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "800 ms tumble: 8 frames at 100 ms, then the result face."
+  },
+  {
+   "id": "dice_roll_02",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "800 ms tumble: 8 frames at 100 ms, then the result face."
+  },
+  {
+   "id": "dice_roll_03",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "800 ms tumble: 8 frames at 100 ms, then the result face."
+  },
+  {
+   "id": "dice_roll_04",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "800 ms tumble: 8 frames at 100 ms, then the result face."
+  },
+  {
+   "id": "dice_roll_05",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "800 ms tumble: 8 frames at 100 ms, then the result face."
+  },
+  {
+   "id": "dice_roll_06",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "800 ms tumble: 8 frames at 100 ms, then the result face."
+  },
+  {
+   "id": "dice_roll_07",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "800 ms tumble: 8 frames at 100 ms, then the result face."
+  },
+  {
+   "id": "dice_roll_08",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "800 ms tumble: 8 frames at 100 ms, then the result face."
+  },
+  {
+   "id": "dice_shadow",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "dice_tray_red",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    72,
+    72
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Sits on the active card under the dice."
+  },
+  {
+   "id": "dice_tray_blue",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    72,
+    72
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Sits on the active card under the dice."
+  },
+  {
+   "id": "dice_tray_yellow",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    72,
+    72
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Sits on the active card under the dice."
+  },
+  {
+   "id": "dice_tray_green",
+   "group": "dice",
+   "folder": "images/dice",
+   "size": [
+    72,
+    72
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Sits on the active card under the dice."
+  },
+  {
+   "id": "card_red_inactive",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_red_active",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_red_disconnected",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_red_finished",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_blue_inactive",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_blue_active",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_blue_disconnected",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_blue_finished",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_yellow_inactive",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_yellow_active",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_yellow_disconnected",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_yellow_finished",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_green_inactive",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_green_active",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_green_disconnected",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_green_finished",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Every state has identical pixel size; glow lives in the 8 px margin, so layout never moves."
+  },
+  {
+   "id": "card_timer_ring_track",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Tinted with the player colour."
+  },
+  {
+   "id": "card_timer_ring_fill",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    190,
+    88
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    28,
+    28,
+    28,
+    28
+   ],
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Reference stroke for the ring; the app sweeps progress along this exact path (radius 20, 4.5 px)."
+  },
+  {
+   "id": "card_rank_1",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "card_rank_2",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "card_rank_3",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "card_rank_4",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "card_crown",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "results"
+   ],
+   "notes": null
+  },
+  {
+   "id": "card_wifi_off",
+   "group": "cards",
+   "folder": "images/cards",
+   "size": [
+    32,
+    32
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "avatar_01_fox",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_02_owl",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_03_cat",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_04_bear",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_05_frog",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_06_penguin",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_07_bunny",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_08_panda",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_09_robot",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_10_octopus",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_11_chick",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "avatar_12_monkey",
+   "group": "avatars",
+   "folder": "images/cards",
+   "size": [
+    256,
+    256
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "home",
+    "local_setup",
+    "lobby",
+    "game",
+    "results",
+    "settings"
+   ],
+   "notes": "256 px master; shown at 32\u201396 dp, so one resolution covers 3x."
+  },
+  {
+   "id": "ui_button_primary_normal",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    96,
+    56
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    18,
+    18,
+    18,
+    22
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_primary_pressed",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    96,
+    56
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    18,
+    18,
+    18,
+    22
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_primary_disabled",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    96,
+    56
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    18,
+    18,
+    18,
+    22
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_secondary_normal",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    96,
+    56
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    18,
+    18,
+    18,
+    22
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_secondary_pressed",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    96,
+    56
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    18,
+    18,
+    18,
+    22
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_secondary_disabled",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    96,
+    56
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    18,
+    18,
+    18,
+    22
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_danger_normal",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    96,
+    56
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    18,
+    18,
+    18,
+    22
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_danger_pressed",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    96,
+    56
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    18,
+    18,
+    18,
+    22
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_danger_disabled",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    96,
+    56
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    18,
+    18,
+    18,
+    22
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_icon_normal",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_icon_pressed",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_button_icon_disabled",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    48,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Text and icons are drawn by Flutter on top."
+  },
+  {
+   "id": "ui_panel",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    20,
+    20,
+    20,
+    20
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": null
+  },
+  {
+   "id": "ui_dialog",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    128,
+    128
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    42,
+    42,
+    42,
+    42
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "join",
+    "lobby"
+   ],
+   "notes": null
+  },
+  {
+   "id": "ui_toast",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    64,
+    40
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    20,
+    20,
+    20,
+    20
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "Text uses the surface colour on this fill."
+  },
+  {
+   "id": "ui_banner",
+   "group": "ui",
+   "folder": "images/ui",
+   "size": [
+    96,
+    48
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": [
+    24,
+    20,
+    20,
+    20
+   ],
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "join"
+   ],
+   "notes": null
+  },
+  {
+   "id": "icon_play",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_pause",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_settings",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_home",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_wifi",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_hotspot",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_qr",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_link",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_refresh",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_sound",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_music",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_haptics",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_sun",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_moon",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_auto",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_ai",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_human",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_crown",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_close",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_back",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_check",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "icon_info",
+   "group": "icons",
+   "folder": "icons",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "tinted",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "all"
+   ],
+   "notes": "Single colour; tinted at runtime with the current text or accent colour."
+  },
+  {
+   "id": "fx_capture_puff_01",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    128,
+    128
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "6 frames over ~240 ms at the capture cell."
+  },
+  {
+   "id": "fx_capture_puff_02",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    128,
+    128
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "6 frames over ~240 ms at the capture cell."
+  },
+  {
+   "id": "fx_capture_puff_03",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    128,
+    128
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "6 frames over ~240 ms at the capture cell."
+  },
+  {
+   "id": "fx_capture_puff_04",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    128,
+    128
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "6 frames over ~240 ms at the capture cell."
+  },
+  {
+   "id": "fx_capture_puff_05",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    128,
+    128
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "6 frames over ~240 ms at the capture cell."
+  },
+  {
+   "id": "fx_capture_puff_06",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    128,
+    128
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": "6 frames over ~240 ms at the capture cell."
+  },
+  {
+   "id": "fx_sparkle",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    64,
+    64
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_star_burst",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    128,
+    128
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "game",
+    "results"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_rect_red",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_rect_blue",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_rect_yellow",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_rect_green",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_circle_red",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_circle_blue",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_circle_yellow",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_circle_green",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_triangle_red",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_triangle_blue",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_triangle_yellow",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_triangle_green",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_star_red",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_star_blue",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_star_yellow",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_star_green",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_ribbon_red",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_ribbon_blue",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_ribbon_yellow",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_ribbon_green",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_diamond_red",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_diamond_blue",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_diamond_yellow",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "fx_confetti_diamond_green",
+   "group": "fx",
+   "folder": "images/fx",
+   "size": [
+    24,
+    24
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "results",
+    "game"
+   ],
+   "notes": null
+  },
+  {
+   "id": "htp_1_leave_base",
+   "group": "htp",
+   "folder": "images/ui",
+   "size": [
+    640,
+    400
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "how_to_play"
+   ],
+   "notes": "How to Play card illustration."
+  },
+  {
+   "id": "htp_2_move",
+   "group": "htp",
+   "folder": "images/ui",
+   "size": [
+    640,
+    400
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "how_to_play"
+   ],
+   "notes": "How to Play card illustration."
+  },
+  {
+   "id": "htp_3_capture_safe",
+   "group": "htp",
+   "folder": "images/ui",
+   "size": [
+    640,
+    400
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "how_to_play"
+   ],
+   "notes": "How to Play card illustration."
+  },
+  {
+   "id": "htp_4_extra_roll",
+   "group": "htp",
+   "folder": "images/ui",
+   "size": [
+    640,
+    400
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "how_to_play"
+   ],
+   "notes": "How to Play card illustration."
+  },
+  {
+   "id": "htp_5_win",
+   "group": "htp",
+   "folder": "images/ui",
+   "size": [
+    640,
+    400
+   ],
+   "anchor": [
+    0,
+    0
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "how_to_play"
+   ],
+   "notes": "How to Play card illustration."
+  },
+  {
+   "id": "brand_app_icon",
+   "group": "brand",
+   "folder": "images/brand",
+   "size": [
+    1024,
+    1024
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "launcher"
+   ],
+   "notes": "Master for flutter_launcher_icons (iOS set and legacy Android)."
+  },
+  {
+   "id": "brand_adaptive_foreground",
+   "group": "brand",
+   "folder": "images/brand",
+   "size": [
+    1024,
+    1024
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "launcher"
+   ],
+   "notes": "Android adaptive foreground; the mark stays inside the 66% safe zone."
+  },
+  {
+   "id": "brand_adaptive_background",
+   "group": "brand",
+   "folder": "images/brand",
+   "size": [
+    1024,
+    1024
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": "any",
+   "scales": [
+    1
+   ],
+   "screens": [
+    "launcher"
+   ],
+   "notes": null
+  },
+  {
+   "id": "brand_splash_logo",
+   "group": "brand",
+   "folder": "images/brand",
+   "size": [
+    288,
+    288
+   ],
+   "anchor": [
+    0.5,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "splash"
+   ],
+   "notes": "flutter_native_splash image / image_dark; Android 12 icon area is 288 dp."
+  },
+  {
+   "id": "brand_wordmark",
+   "group": "brand",
+   "folder": "images/brand",
+   "size": [
+    480,
+    120
+   ],
+   "anchor": [
+    0,
+    0.5
+   ],
+   "nineSlice": null,
+   "modes": [
+    "light",
+    "dark"
+   ],
+   "scales": [
+    1,
+    2,
+    3
+   ],
+   "screens": [
+    "splash",
+    "home"
+   ],
+   "notes": null
+  }
+ ]
+}
