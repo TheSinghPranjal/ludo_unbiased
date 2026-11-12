@@ -12,6 +12,7 @@ dependencies:
   clock: ^1.1.2
   collection: ^1.19.1
   flame: ^1.38.2
+  flame_audio: ^2.12.2
   flutter:
     sdk: flutter
   flutter_riverpod: ^3.3.2
