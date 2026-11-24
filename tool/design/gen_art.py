@@ -70,7 +70,7 @@ def contrast(a, b):
     return (la + 0.05) / (lb + 0.05)
 
 
-PLAYER_LIGHT = {'red': '#D9342B', 'blue': '#3E8EDE', 'yellow': '#ECCB3A', 'green': '#3D9142'}
+PLAYER_LIGHT = {'red': '#E2332A', 'blue': '#1F73DB', 'yellow': '#F2B705', 'green': '#2E9B3A'}
 PALETTE = {
     'light': dict(
         PLAYER_LIGHT,
@@ -164,6 +164,7 @@ def symbol(cx, cy, s, col, fill):
 
 
 def token(cx, cy, r, col, mode, state='idle'):
+    """A glossy pawn standing on its base; (cx, cy) is the sprite centre."""
     p = PALETTE[mode]
     c = p[col]
     i = uid()
@@ -171,28 +172,51 @@ def token(cx, cy, r, col, mode, state='idle'):
         return (f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r * .8)}" fill="{c}" fill-opacity=".16" stroke="{c}" '
                 f'stroke-width="{n(r * .12)}" stroke-dasharray="{n(r * .28)} {n(r * .2)}" stroke-linecap="round"/>'
                 f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r * .2)}" fill="{c}"/>')
-    defs = (f'<defs><radialGradient id="tg{i}" cx="36%" cy="30%" r="78%">'
-            f'<stop offset="0" stop-color="{shade(c, -.42)}"/><stop offset=".5" stop-color="{c}"/>'
-            f'<stop offset="1" stop-color="{shade(c, .3)}"/></radialGradient>'
-            f'<radialGradient id="td{i}" cx="40%" cy="34%" r="72%"><stop offset="0" stop-color="{shade(c, -.28)}"/>'
-            f'<stop offset="1" stop-color="{shade(c, .12)}"/></radialGradient></defs>')
-    body = (f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r)}" fill="{shade(c, .38)}"/>'
-            f'<circle cx="{n(cx)}" cy="{n(cy - r * .04)}" r="{n(r * .9)}" fill="url(#tg{i})"/>'
-            f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r * .63)}" fill="none" stroke="#FFFFFF" stroke-opacity=".92" stroke-width="{n(r * .1)}"/>'
-            f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r * .55)}" fill="url(#td{i})"/>'
-            + symbol(cx, cy + (r * .03 if col == 'yellow' else 0), r * .26, col, SYMBOL_ON[col])
-            + f'<ellipse cx="{n(cx - r * .32)}" cy="{n(cy - r * .42)}" rx="{n(r * .38)}" ry="{n(r * .2)}" '
-              f'transform="rotate(-32 {n(cx - r * .32)} {n(cy - r * .42)})" fill="#FFFFFF" fill-opacity=".5"/>')
+    by = cy + r * .62  # base centre
+    defs = (f'<defs><radialGradient id="th{i}" cx="35%" cy="30%" r="75%">'
+            f'<stop offset="0" stop-color="{shade(c, -.55)}"/><stop offset=".45" stop-color="{c}"/>'
+            f'<stop offset="1" stop-color="{shade(c, .35)}"/></radialGradient>'
+            f'<linearGradient id="tb{i}" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="{shade(c, .22)}"/>'
+            f'<stop offset=".35" stop-color="{shade(c, -.3)}"/><stop offset=".7" stop-color="{c}"/>'
+            f'<stop offset="1" stop-color="{shade(c, .32)}"/></linearGradient></defs>')
+    body = (
+        # base disc: side then top
+        f'<ellipse cx="{n(cx)}" cy="{n(by + r * .1)}" rx="{n(r * .86)}" ry="{n(r * .32)}" fill="{shade(c, .42)}"/>'
+        f'<ellipse cx="{n(cx)}" cy="{n(by)}" rx="{n(r * .86)}" ry="{n(r * .3)}" fill="url(#tb{i})"/>'
+        f'<ellipse cx="{n(cx)}" cy="{n(by - r * .04)}" rx="{n(r * .7)}" ry="{n(r * .2)}" fill="#FFFFFF" fill-opacity=".18"/>'
+        # bell-shaped body
+        f'<path d="M{n(cx - r * .6)} {n(by)} C{n(cx - r * .56)} {n(cy + r * .1)} {n(cx - r * .2)} {n(cy - r * .05)} '
+        f'{n(cx - r * .18)} {n(cy - r * .28)} L{n(cx + r * .18)} {n(cy - r * .28)} C{n(cx + r * .2)} {n(cy - r * .05)} '
+        f'{n(cx + r * .56)} {n(cy + r * .1)} {n(cx + r * .6)} {n(by)} '
+        f'A{n(r * .6)} {n(r * .2)} 0 0 1 {n(cx - r * .6)} {n(by)}Z" fill="url(#tb{i})"/>'
+        # collar
+        f'<ellipse cx="{n(cx)}" cy="{n(cy - r * .26)}" rx="{n(r * .36)}" ry="{n(r * .12)}" fill="{shade(c, .18)}"/>'
+        f'<ellipse cx="{n(cx)}" cy="{n(cy - r * .3)}" rx="{n(r * .34)}" ry="{n(r * .1)}" fill="{shade(c, -.25)}"/>'
+        # head
+        f'<circle cx="{n(cx)}" cy="{n(cy - r * .66)}" r="{n(r * .42)}" fill="url(#th{i})"/>'
+        f'<ellipse cx="{n(cx - r * .14)}" cy="{n(cy - r * .82)}" rx="{n(r * .15)}" ry="{n(r * .1)}" '
+        f'transform="rotate(-30 {n(cx - r * .14)} {n(cy - r * .82)})" fill="#FFFFFF" fill-opacity=".85"/>'
+        # body highlight
+        f'<path d="M{n(cx - r * .34)} {n(by - r * .08)} C{n(cx - r * .3)} {n(cy + r * .12)} {n(cx - r * .14)} {n(cy - r * .02)} '
+        f'{n(cx - r * .1)} {n(cy - r * .14)}" fill="none" stroke="#FFFFFF" stroke-opacity=".5" stroke-width="{n(r * .07)}" '
+        f'stroke-linecap="round"/>'
+        + symbol(cx, cy + r * .3, r * .15, col, SYMBOL_ON[col]))
     if p['rim']:
-        body += f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r + .4)}" fill="none" stroke="{p["rim"]}" stroke-opacity=".7" stroke-width="{n(max(1.2, r * .07))}"/>'
+        body = (f'<g stroke="{p["rim"]}" stroke-opacity=".75" stroke-width="{n(max(1.2, r * .06))}" fill="none">'
+                f'<circle cx="{n(cx)}" cy="{n(cy - r * .66)}" r="{n(r * .44)}"/>'
+                f'<ellipse cx="{n(cx)}" cy="{n(by + r * .1)}" rx="{n(r * .88)}" ry="{n(r * .34)}"/></g>' + body)
     if state == 'hop':
         body = f'<g transform="translate({n(cx)} {n(cy)}) scale(1.12) translate({n(-cx)} {n(-cy)})">{body}</g>'
     pre = ''
     if state == 'movable':
-        pre = (f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r * 1.38)}" fill="{c}" fill-opacity=".18"/>'
-               f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r * 1.32)}" fill="none" stroke="{c}" stroke-width="{n(r * .14)}"/>')
+        pre = (f'<ellipse cx="{n(cx)}" cy="{n(by + r * .08)}" rx="{n(r * 1.3)}" ry="{n(r * .6)}" fill="{c}" fill-opacity=".22"/>'
+               f'<ellipse cx="{n(cx)}" cy="{n(by + r * .08)}" rx="{n(r * 1.26)}" ry="{n(r * .56)}" fill="none" stroke="#FFFFFF" '
+               f'stroke-width="{n(r * .2)}"/>'
+               f'<ellipse cx="{n(cx)}" cy="{n(by + r * .08)}" rx="{n(r * 1.26)}" ry="{n(r * .56)}" fill="none" stroke="{c}" '
+               f'stroke-width="{n(r * .11)}"/>')
     if state == 'selected':
-        pre = f'<circle cx="{n(cx)}" cy="{n(cy)}" r="{n(r * 1.3)}" fill="none" stroke="{p["text"]}" stroke-width="{n(r * .17)}"/>'
+        pre = (f'<ellipse cx="{n(cx)}" cy="{n(by + r * .08)}" rx="{n(r * 1.24)}" ry="{n(r * .54)}" fill="none" '
+               f'stroke="{p["text"]}" stroke-width="{n(r * .15)}"/>')
     return defs + pre + body
 
 
@@ -276,11 +300,12 @@ def yard(x, y, c, col, mode):
            f'<rect x="{n(x)}" y="{n(y)}" width="{n(Y)}" height="{n(Y)}" fill="url(#yg{i})"/>')
     if mode == 'dark':
         out += f'<rect x="{n(x + c * .3)}" y="{n(y + c * .3)}" width="{n(Y - c * .6)}" height="{n(Y - c * .6)}" rx="{n(c * .5)}" fill="none" stroke="{shade(k, -.35)}" stroke-opacity=".55" stroke-width="{n(c * .2)}" filter="url(#yi{i})"/>'
-    out += (f'<rect x="{n(x + c)}" y="{n(y + c * 1.08)}" width="{n(4 * c)}" height="{n(4 * c)}" rx="{n(c * .5)}" fill="#000000" fill-opacity=".22" filter="url(#yi{i})"/>'
-            f'<rect x="{n(x + c)}" y="{n(y + c)}" width="{n(4 * c)}" height="{n(4 * c)}" rx="{n(c * .5)}" fill="{p["inner"]}"/>')
+    out += (f'<rect x="{n(x + c)}" y="{n(y + c * 1.16)}" width="{n(4 * c)}" height="{n(4 * c)}" rx="{n(c * .6)}" fill="#000000" fill-opacity=".3" filter="url(#yi{i})"/>'
+            f'<rect x="{n(x + c)}" y="{n(y + c * 1.1)}" width="{n(4 * c)}" height="{n(4 * c)}" rx="{n(c * .6)}" fill="{shade(p["inner"], .1)}"/>'
+            f'<rect x="{n(x + c)}" y="{n(y + c)}" width="{n(4 * c)}" height="{n(4 * c)}" rx="{n(c * .6)}" fill="{p["inner"]}"/>')
     for dr, dc in [(2, 2), (2, 4), (4, 2), (4, 4)]:
-        out += (f'<circle cx="{n(x + dc * c)}" cy="{n(y + dr * c)}" r="{n(c * .58)}" fill="{k}" fill-opacity=".16" '
-                f'stroke="{k}" stroke-width="{n(c * .07)}"/>')
+        out += (f'<ellipse cx="{n(x + dc * c)}" cy="{n(y + dr * c + c * .3)}" rx="{n(c * .55)}" ry="{n(c * .22)}" '
+                f'fill="{k}" fill-opacity=".14"/>')
     return out
 
 

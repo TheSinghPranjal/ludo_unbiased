@@ -49,6 +49,9 @@ class LudoGame extends FlameGame {
   /// Called when a token reaches HOME.
   VoidCallback? onHome;
 
+  /// Called when a token leaves base.
+  VoidCallback? onLeaveBase;
+
   /// Light or dark sprites; switch at any time.
   BoardMode mode;
 

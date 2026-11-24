@@ -5,6 +5,7 @@ analyzer:
     - "**/*.g.dart"
     - "**/*.freezed.dart"
     - build/**
+    - lib/l10n/gen/**
   errors:
     # freezed puts @JsonKey on factory parameters, which is the documented usage.
     invalid_annotation_target: ignore

@@ -1,52 +1,67 @@
 import 'package:ludo_unbiased/features/game/models/game_event.dart';
 import 'package:ludo_unbiased/features/game/models/game_state.dart';
 import 'package:ludo_unbiased/features/game/models/player_color.dart';
+import 'package:ludo_unbiased/l10n/l10n.dart';
 
-/// The status-line text for a batch of events, or null to keep the current
+/// A status line, rendered in whatever language is current when shown, so
+/// switching language mid-game updates the line too.
+typedef StatusLine = String Function(AppLocalizations l);
+
+/// The status line for a batch of events, or null to keep the current
 /// line. Names come from [state] so the line says "Asha" rather than "Red".
-String? statusFor(List<GameEvent> events, GameState state) {
-  String name(PlayerColor c) => state.playerOf(c)?.name ?? _colorName(c);
+StatusLine? statusFor(List<GameEvent> events, GameState state) {
   for (final e in events.reversed) {
-    final text = switch (e) {
-      GameOver(:final ranking) => '${name(ranking.first)} wins!',
-      PlayerFinished(:final color, :final rank) =>
-        '${name(color)} finished ${_ordinal(rank)}!',
-      ThreeSixesForfeit(:final color) =>
-        'Three 6s. ${name(color)} loses '
-            'the turn.',
-      TokenCaptured(:final color, :final byColor) =>
-        '${name(byColor)} captured ${name(color)}!',
-      ExtraRoll(:final color, :final reason) => switch (reason) {
-        ExtraRollReason.six => '${name(color)} rolled 6, extra roll!',
-        ExtraRollReason.capture => 'Capture! ${name(color)} rolls again.',
-        ExtraRollReason.home => 'Token home! ${name(color)} rolls again.',
-      },
-      TurnPassed(:final from, :final to, :final reason) => switch (reason) {
-        TurnPassReason.noMoves =>
-          'No moves for ${name(from)}. '
-              "${name(to)}'s turn.",
-        TurnPassReason.playerRemoved =>
-          '${name(from)} left. '
-              "${name(to)}'s turn.",
-        _ => "${name(to)}'s turn",
-      },
-      PlayerRemoved(:final color) => '${name(color)} left the game.',
-      DiceRolled(:final color, :final value) =>
-        '${name(color)} rolled '
-            '$value',
-      _ => null,
-    };
-    if (text != null) return text;
+    final line = _lineFor(e, state);
+    if (line != null) return line;
   }
   return null;
 }
 
-String _colorName(PlayerColor c) =>
-    c.name[0].toUpperCase() + c.name.substring(1);
+/// "Your turn" for the local "You" seat, otherwise "Name's turn".
+StatusLine turnStatus(PlayerColor color, GameState state) =>
+    (l) => turnLine(l, _name(l, state, color));
 
-String _ordinal(int n) => switch (n) {
-  1 => '1st',
-  2 => '2nd',
-  3 => '3rd',
-  _ => '${n}th',
-};
+/// "Your turn" when [name] is the local player's name, else "Name's turn".
+String turnLine(AppLocalizations l, String name) =>
+    name == l.you ? l.turnYours : l.turnOf(name);
+
+String _name(AppLocalizations l, GameState state, PlayerColor c) =>
+    state.playerOf(c)?.name ?? l.colorName(c);
+
+StatusLine? _lineFor(GameEvent e, GameState state) {
+  String n(AppLocalizations l, PlayerColor c) => _name(l, state, c);
+  return switch (e) {
+    GameOver(:final ranking) => (l) => l.statusWins(n(l, ranking.first)),
+    PlayerFinished(:final color, :final rank) => (l) => l.statusFinished(
+      n(l, color),
+      l.rankOrdinal('$rank'),
+    ),
+    ThreeSixesForfeit(:final color) => (l) => l.statusThreeSixes(n(l, color)),
+    TokenCaptured(:final color, :final byColor) => (l) => l.statusCaptured(
+      n(l, byColor),
+      n(l, color),
+    ),
+    ExtraRoll(:final color, :final reason) => switch (reason) {
+      ExtraRollReason.six => (l) => l.statusExtraSix(n(l, color)),
+      ExtraRollReason.capture => (l) => l.statusExtraCapture(n(l, color)),
+      ExtraRollReason.home => (l) => l.statusExtraHome(n(l, color)),
+    },
+    TurnPassed(:final from, :final to, :final reason) => switch (reason) {
+      TurnPassReason.noMoves => (l) => l.statusNoMoves(
+        n(l, from),
+        turnLine(l, n(l, to)),
+      ),
+      TurnPassReason.playerRemoved => (l) => l.statusLeftTurn(
+        n(l, from),
+        turnLine(l, n(l, to)),
+      ),
+      _ => (l) => turnLine(l, n(l, to)),
+    },
+    PlayerRemoved(:final color) => (l) => l.statusLeft(n(l, color)),
+    DiceRolled(:final color, :final value) => (l) => l.statusRolled(
+      n(l, color),
+      value,
+    ),
+    _ => null,
+  };
+}

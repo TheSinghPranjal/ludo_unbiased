@@ -3,16 +3,24 @@ import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:flutter_test/flutter_test.dart';
 import 'package:ludo_unbiased/app/app.dart';
 import 'package:ludo_unbiased/features/game/providers/game_providers.dart';
+import 'package:ludo_unbiased/features/game/services/audio_service.dart';
 import 'package:ludo_unbiased/features/game/services/dice_service.dart';
+import 'package:ludo_unbiased/features/settings/providers/settings_providers.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
-Future<ProviderContainer> pumpApp(WidgetTester tester, List<int> dice) async {
-  SharedPreferences.setMockInitialValues({});
-  final prefs = await SharedPreferences.getInstance();
+Future<ProviderContainer> pumpApp(
+  WidgetTester tester,
+  List<int> dice, {
+  Map<String, Object> prefs = const {},
+  AudioBackend? audio,
+}) async {
+  SharedPreferences.setMockInitialValues(prefs);
+  final sp = await SharedPreferences.getInstance();
   final container = ProviderContainer(
     overrides: [
-      sharedPreferencesProvider.overrideWithValue(prefs),
+      sharedPreferencesProvider.overrideWithValue(sp),
       diceServiceProvider.overrideWithValue(ScriptedDiceService(dice)),
+      audioBackendProvider.overrideWithValue(audio ?? SilentAudioBackend()),
     ],
   );
   addTearDown(container.dispose);
@@ -71,5 +79,33 @@ void main() {
     expect(game.state.value.players, hasLength(4));
     container.read(activeGameProvider.notifier).end();
     await tester.pump();
+  });
+
+  testWidgets('Back asks to confirm, Stay keeps the game, Leave goes Home', (
+    tester,
+  ) async {
+    final container = await pumpApp(tester, []);
+    await tester.tap(find.byKey(const Key('quickPlay')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+
+    await tester.tap(find.byKey(const Key('back')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(find.text('Leave game?'), findsOneWidget);
+    await tester.tap(find.text('Stay'));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(find.text('Leave game?'), findsNothing);
+    expect(container.read(activeGameProvider), isNotNull);
+
+    await tester.tap(find.byKey(const Key('back')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    await tester.tap(find.byKey(const Key('confirmLeave')));
+    await tester.pump();
+    await tester.pump(const Duration(milliseconds: 300));
+    expect(container.read(activeGameProvider), isNull);
+    expect(find.text('Quick Play vs AI'), findsOneWidget);
   });
 }

@@ -17,8 +17,24 @@ class BoardView extends StatefulWidget {
     this.onPickFromStack,
     this.diceLanded,
     this.speed = 1,
+    this.onStep,
+    this.onCapture,
+    this.onHome,
+    this.onLeaveBase,
     super.key,
   });
+
+  /// Each token hop; for sound and haptics.
+  final VoidCallback? onStep;
+
+  /// A capture starts playing.
+  final VoidCallback? onCapture;
+
+  /// A token reaches HOME.
+  final VoidCallback? onHome;
+
+  /// A token leaves base.
+  final VoidCallback? onLeaveBase;
 
   /// The game being shown.
   final GameController controller;
@@ -51,6 +67,7 @@ class BoardViewState extends State<BoardView> with WidgetsBindingObserver {
       onPickFromStack: widget.onPickFromStack,
       speed: widget.speed,
     );
+    _bindHooks();
     _c.state.addListener(_sync);
     WidgetsBinding.instance.addObserver(this);
     _bindBoardGate();
@@ -71,7 +88,14 @@ class BoardViewState extends State<BoardView> with WidgetsBindingObserver {
   void didUpdateWidget(BoardView oldWidget) {
     super.didUpdateWidget(oldWidget);
     game.speed = widget.speed;
+    _bindHooks();
   }
+
+  void _bindHooks() => game
+    ..onStep = widget.onStep
+    ..onCapture = widget.onCapture
+    ..onHome = widget.onHome
+    ..onLeaveBase = widget.onLeaveBase;
 
   @override
   void didChangeAppLifecycleState(AppLifecycleState state) {

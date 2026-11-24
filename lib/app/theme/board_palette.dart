@@ -21,10 +21,10 @@ class BoardPalette extends ThemeExtension<BoardPalette> {
 
   /// Light mode, matching the reference board.
   static const light = BoardPalette(
-    red: Color(0xFFD9342B),
-    blue: Color(0xFF3E8EDE),
-    yellow: Color(0xFFECCB3A),
-    green: Color(0xFF3D9142),
+    red: Color(0xFFE2332A),
+    blue: Color(0xFF1F73DB),
+    yellow: Color(0xFFF2B705),
+    green: Color(0xFF2E9B3A),
     board: Color(0xFFDCE1E9),
     cell: Color(0xFFFFFFFF),
     grid: Color(0xFFC9CFD9),
@@ -35,10 +35,10 @@ class BoardPalette extends ThemeExtension<BoardPalette> {
 
   /// Dark mode: player colours 10% less saturated, light star outlines.
   static const dark = BoardPalette(
-    red: Color(0xFFD03C34),
-    blue: Color(0xFF468ED6),
-    yellow: Color(0xFFE3C543),
-    green: Color(0xFF418D46),
+    red: Color(0xFFD93B33),
+    blue: Color(0xFF2874D2),
+    yellow: Color(0xFFE6B111),
+    green: Color(0xFF33963E),
     board: Color(0xFF171A24),
     cell: Color(0xFF232838),
     grid: Color(0xFF343A4F),

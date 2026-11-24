@@ -8,6 +8,7 @@ import 'dart:ui';
 
 import 'package:flame/components.dart';
 import 'package:flame/effects.dart';
+import 'package:flutter/animation.dart';
 import 'package:ludo_unbiased/core/constants/timing.dart';
 import 'package:ludo_unbiased/features/game/flame/board_layout.dart';
 import 'package:ludo_unbiased/features/game/flame/fx/effects_fx.dart';
@@ -98,11 +99,15 @@ class AnimationQueue {
     final hop = Timing.hop.inMicroseconds / 1e6 / _speed;
     if (e.fromRel < 0) {
       t.position = BoardLayout.yardSlot(e.color, e.tokenId);
+      game.onLeaveBase?.call();
       if (!game.reduceMotion) {
         t
           ..scale = Vector2.all(0.6)
           ..add(
-            ScaleEffect.to(Vector2.all(1), EffectController(duration: hop)),
+            ScaleEffect.to(
+              Vector2.all(1),
+              EffectController(duration: hop * 1.6, curve: Curves.easeOutBack),
+            ),
           );
       }
     }
@@ -113,7 +118,9 @@ class AnimationQueue {
         t,
         (done) => MoveToEffect(
           BoardLayout.centreOf(cell),
-          EffectController(duration: hop),
+          // Each hop eases out of one cell and into the next, so a walk
+          // reads as hops rather than a mechanical slide.
+          EffectController(duration: hop, curve: Curves.easeInOutSine),
           onComplete: done,
         ),
         hopLift: !game.reduceMotion,
@@ -150,7 +157,7 @@ class AnimationQueue {
           ? MoveToEffect(to, EffectController(duration: d), onComplete: done)
           : MoveAlongPathEffect(
               path,
-              EffectController(duration: d),
+              EffectController(duration: d, curve: Curves.easeInOutCubic),
               absolute: true,
               onComplete: done,
             ),

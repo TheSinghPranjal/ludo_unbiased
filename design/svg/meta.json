@@ -1,10 +1,10 @@
 {
  "palette": {
   "light": {
-   "red": "#D9342B",
-   "blue": "#3E8EDE",
-   "yellow": "#ECCB3A",
-   "green": "#3D9142",
+   "red": "#E2332A",
+   "blue": "#1F73DB",
+   "yellow": "#F2B705",
+   "green": "#2E9B3A",
    "board": "#DCE1E9",
    "cell": "#FFFFFF",
    "grid": "#C9CFD9",
@@ -25,10 +25,10 @@
    "rim": null
   },
   "dark": {
-   "red": "#D03C34",
-   "blue": "#468ED6",
-   "yellow": "#E3C543",
-   "green": "#418D46",
+   "red": "#D93B33",
+   "blue": "#2874D2",
+   "yellow": "#E6B111",
+   "green": "#33963E",
    "board": "#171A24",
    "cell": "#232838",
    "grid": "#343A4F",
