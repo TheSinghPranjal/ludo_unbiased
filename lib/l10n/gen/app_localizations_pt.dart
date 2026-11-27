@@ -15,6 +15,9 @@ class AppLocalizationsPt extends AppLocalizations {
   String get languageName => 'Português';
 
   @override
+  String get newGame => 'Novo jogo';
+
+  @override
   String get continueGame => 'Continuar';
 
   @override

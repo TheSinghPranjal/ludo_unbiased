@@ -15,6 +15,9 @@ class AppLocalizationsEs extends AppLocalizations {
   String get languageName => 'Español';
 
   @override
+  String get newGame => 'Nueva partida';
+
+  @override
   String get continueGame => 'Continuar';
 
   @override

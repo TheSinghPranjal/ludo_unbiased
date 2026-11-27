@@ -38,7 +38,7 @@ void main() {
     // pageBack() finds the button by its English tooltip.
     await tester.tap(find.byType(BackButton));
     await tester.pumpAndSettle();
-    expect(find.text('AI के साथ झटपट खेल'), findsOneWidget);
+    expect(find.text('नया खेल'), findsOneWidget);
   });
 
   testWidgets('Dark appearance switches the theme', (tester) async {
@@ -83,7 +83,7 @@ void main() {
     expect(find.text('Got it'), findsOneWidget);
     await tester.tap(find.byKey(const Key('htpNext')));
     await tester.pumpAndSettle();
-    expect(find.text('Quick Play vs AI'), findsOneWidget);
+    expect(find.text('New Game'), findsOneWidget);
   });
 
   test('status lines render in the chosen language', () {

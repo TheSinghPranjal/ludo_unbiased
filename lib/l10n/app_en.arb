@@ -5,6 +5,8 @@
   "languageName": "English",
   "@languageName": {"description": "This language's own name, shown in the language picker."},
 
+  "newGame": "New Game",
+  "@newGame": {"description": "Primary Home button: starts a fresh game vs AI."},
   "continueGame": "Continue",
   "quickPlay": "Quick Play vs AI",
   "playLocal": "Play Local",

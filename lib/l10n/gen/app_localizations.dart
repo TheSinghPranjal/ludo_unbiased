@@ -116,6 +116,12 @@ abstract class AppLocalizations {
   /// **'English'**
   String get languageName;
 
+  /// Primary Home button: starts a fresh game vs AI.
+  ///
+  /// In en, this message translates to:
+  /// **'New Game'**
+  String get newGame;
+
   /// No description provided for @continueGame.
   ///
   /// In en, this message translates to:

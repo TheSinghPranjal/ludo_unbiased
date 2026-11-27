@@ -33,7 +33,7 @@ Future<ProviderContainer> pumpApp(
 void main() {
   testWidgets('Home offers Quick Play and Play Local', (tester) async {
     await pumpApp(tester, []);
-    expect(find.text('Quick Play vs AI'), findsOneWidget);
+    expect(find.text('New Game'), findsOneWidget);
     expect(find.text('Play Local'), findsOneWidget);
     expect(find.text('Continue'), findsNothing);
   });
@@ -106,6 +106,6 @@ void main() {
     await tester.pump();
     await tester.pump(const Duration(milliseconds: 300));
     expect(container.read(activeGameProvider), isNull);
-    expect(find.text('Quick Play vs AI'), findsOneWidget);
+    expect(find.text('New Game'), findsOneWidget);
   });
 }

@@ -2,6 +2,7 @@
   "@@locale": "fr",
   "appTitle": "Ludo Unbiased",
   "languageName": "Français",
+  "newGame": "Nouvelle partie",
   "continueGame": "Continuer",
   "quickPlay": "Partie rapide contre l'IA",
   "playLocal": "Jouer en local",

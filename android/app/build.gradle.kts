@@ -31,10 +31,9 @@ android {
     }
 
     defaultConfig {
-        // TODO: Specify your own unique Application ID (https://developer.android.com/studio/build/application-id.html).
+        // Play Store package name: permanent once the app is published.
         applicationId = "com.the_lazy_bear_club.ludo_unbiased"
-        // You can update the following values to match your application needs.
-        // For more information, see: https://flutter.dev/to/review-gradle-config.
+        // versionCode/versionName come from `version:` in pubspec.yaml (name+code).
         minSdk = flutter.minSdkVersion
         targetSdk = flutter.targetSdkVersion
         versionCode = flutter.versionCode

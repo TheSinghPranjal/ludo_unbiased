@@ -15,6 +15,9 @@ class AppLocalizationsHi extends AppLocalizations {
   String get languageName => 'हिन्दी';
 
   @override
+  String get newGame => 'नया खेल';
+
+  @override
   String get continueGame => 'जारी रखें';
 
   @override

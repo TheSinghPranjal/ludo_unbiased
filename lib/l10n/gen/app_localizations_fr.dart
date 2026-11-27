@@ -15,6 +15,9 @@ class AppLocalizationsFr extends AppLocalizations {
   String get languageName => 'Français';
 
   @override
+  String get newGame => 'Nouvelle partie';
+
+  @override
   String get continueGame => 'Continuer';
 
   @override

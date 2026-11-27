@@ -50,29 +50,12 @@ class HomeScreen extends ConsumerWidget {
                       mainAxisSize: MainAxisSize.min,
                       crossAxisAlignment: CrossAxisAlignment.stretch,
                       children: [
-                        if (hasSave) ...[
-                          enter(
-                            HomeButton(
-                              style: HomeButtonStyle.gold,
-                              label: l.continueGame,
-                              leading: const _PlayTriangle(),
-                              onPressed: () {
-                                if (game.resumeSaved()) context.go('/game');
-                              },
-                            ),
-                          ),
-                          const SizedBox(height: 16),
-                        ],
                         enter(
                           HomeButton(
                             key: const Key('quickPlay'),
-                            style: HomeButtonStyle.blue,
-                            label: l.quickPlay,
-                            leading: Image.asset(
-                              'assets/images/cards/avatar_09_robot.png',
-                              width: 40,
-                              height: 40,
-                            ),
+                            style: HomeButtonStyle.gold,
+                            label: l.newGame,
+                            leading: const _PlayTriangle(),
                             onPressed: () {
                               game.startLocal([
                                 (
@@ -92,6 +75,25 @@ class HomeScreen extends ConsumerWidget {
                             },
                           ),
                         ),
+                        if (hasSave) ...[
+                          const SizedBox(height: 16),
+                          enter(
+                            HomeButton(
+                              key: const Key('continueGame'),
+                              style: HomeButtonStyle.blue,
+                              compact: true,
+                              label: l.continueGame,
+                              leading: Icon(
+                                Icons.history_rounded,
+                                size: 28,
+                                color: context.scene.onButton,
+                              ),
+                              onPressed: () {
+                                if (game.resumeSaved()) context.go('/game');
+                              },
+                            ),
+                          ),
+                        ],
                         const SizedBox(height: 16),
                         enter(
                           HomeButton(
@@ -160,10 +162,10 @@ class HomeScreen extends ConsumerWidget {
 
 /// The three looks of a Home button.
 enum HomeButtonStyle {
-  /// Gold call to action (Continue).
+  /// Gold call to action (New Game).
   gold,
 
-  /// Glossy blue (Quick Play).
+  /// Glossy blue (Continue).
   blue,
 
   /// White, outlined (Play Local).
