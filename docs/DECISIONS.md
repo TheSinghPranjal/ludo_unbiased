@@ -28,4 +28,37 @@ One line per decision: date, decision, reason.
 - 2026-11-11: Host addresses come from `NetworkInterface.list()`. `network_info_plus` misses the address on a device acting as the hotspot.
 - 2026-11-11: No background service for the host in v1; the host screen warns to stay in the app. A backgrounded host may be suspended by the OS.
 - 2026-11-11: Protocol adds `roomCode` on `Hello`, and `bad_room`, `kicked` and `rate_limited` errors. Required features had no message; `Pong` is per socket.
+- 2026-11-11: Phase 3 art was drawn without `ref/ludo_board_reference.png`, which was never provided. It follows the written direction in §5.1 and the §1.9 colours.
+- 2026-11-11: Wireframe defaults accepted: compact corner cards at 320 dp, dice on the active card, tap moves the first token and long-press picks, "Replace leavers with AI" off, timer ring plus a number in the last 10 s. Approved at the Phase 2 gate.
+- 2026-11-11: Light-mode safe-cell star is #7A8394 (3.82:1 on white). The first grey failed the 3:1 non-text minimum, and the star carries meaning.
+- 2026-11-11: Grid lines keep the spec's values (1.57:1 light, 1.30:1 dark) and are exempt from contrast checks as decorative. Cells stay distinguishable by fill and spacing.
+- 2026-11-11: Light-mode app UI colours, which the spec leaves open: bg #F4F5F9, surfaces #FFFFFF / #EEF0F6, text #1B1E28 / #596074, primary #2563C9. All text pairs pass AA.
+- 2026-11-11: Text inside art is converted to outlines with fontTools. The SVG renderer on macOS ignores private font configuration, so outlines make output identical on any machine.
+- 2026-11-11: Manifest `modes` adds "any" for mode-independent art (avatars, medals, FX, launcher masters). They look the same on either background.
+- 2026-11-11: Avatars live in `images/cards` and How-to-Play art in `images/ui`. Keeps to the spec's folder list.
+- 2026-11-11: Card backgrounds are 190 × 88 9-slice images: a 174 × 72 card plus an 8 px glow margin. Identical sizes in every state, and the glow never shifts layout.
+- 2026-11-11: The timer ring is drawn by the app along the ring asset's path, tinted with the player colour. A static image cannot show progress.
+- 2026-11-11: The turn deadline lives in the controllers, not in `GameState`. The state stays clock-free, so equal moves give equal states and hashes everywhere.
+- 2026-11-11: Each colour's HOME is its own centre-triangle cell (Red 8,7; Blue 7,6; Yellow 6,7; Green 7,8). These are next to the end of each home column, so the last hop is one adjacent step.
+- 2026-11-11: No `passForTimeout` command. Timer expiry uses `roll` and then `timeoutMove`, which already cover every case.
+- 2026-11-11: Removing a player has no animation. Ending the game or passing the turn on removal takes effect immediately.
+- 2026-11-11: `Move.landsSafe` counts the home column as safe for the timeout policy and AI. Nothing can capture there.
+- 2026-11-11: Added a `PlayerReplacedByAi` event and a `noChange` rule error. "Replace leavers with AI" and connection updates needed them.
+- 2026-11-11: The three dice services share `services/dice_service.dart`. Each is a few lines and they share one interface.
+- 2026-11-11: M2's board is a `CustomPainter` drawn from the board constants. It makes the local game playable before Flame lands in M3, where it is replaced.
+- 2026-11-11: `AppColors` and `BoardPalette` theme extensions were added in M2 rather than M4. The M2 screens already need colours, and the rule forbids hard-coding them.
+- 2026-11-11: Leaving a local game keeps its save, so Home offers Continue. The game is saved after every settle anyway.
+- 2026-11-11: The board's event queue is `LudoGame.animations`. Flame already uses the name `queue` internally.
+- 2026-11-11: The board loads 3x sprites for cells, tokens and FX, 2x for yards and 1x for the flat background. Keeps it sharp on tablets without a 2160 px background in memory.
+- 2026-11-11: `discarded_futures` is ignored file-wide in the Flame files only, because `Component.add` returns `FutureOr` by design.
 - 2026-11-11: Accept plain `ws://` for v1. TLS would need self-signed certificate handling on every client; the residual risk is LAN traffic capture.
+- 2026-11-23: Game screen restyled as a painted scene (sky, hills, plaza) with a gold board frame and glossy HUD. Scene colours live in a third theme extension, `SceneColors`, so widgets still hard-code no colours.
+- 2026-11-23: Tokens are glossy pawns, and player colours are brighter (Red #E2332A, Blue #1F73DB, Yellow #F2B705, Green #2E9B3A). The colour-blind symbol stays on each pawn's body.
+- 2026-11-23: Home uses the supplied illustration `assets/backgrounds/home_bg.jpg`. It sits outside `assets/images/`, so the generated-art manifest check does not cover it.
+- 2026-11-23: Back from the Game screen (button or system gesture) pauses and asks to confirm. Leaving keeps the local save. Back from Local setup returns Home instead of closing the app.
+- 2026-11-23: Release builds are signed only with the upload key from `android/key.properties` (`storeFile=../upload-keystore.jks`, so the keystore is `android/upload-keystore.jks`). bundle/assemble Release fail if the file is missing; there is no fallback to debug keys.
+- 2026-11-24: Settings: Appearance (System/Light/Dark), Language, Sound effects, Music, Vibration and How to Play. Each change applies live and is saved to `shared_preferences` under `settings.*`. Music now defaults to on (the wireframe showed off) because the user asked for music in the game.
+- 2026-11-24: Localization uses Flutter `gen-l10n` with ARB files in `lib/l10n/`, generated into `lib/l10n/gen/`. The app ships English (the default), Hindi, Spanish, French and Portuguese. The app follows the chosen language rather than the phone's. Status lines are stored as functions of `AppLocalizations`, so changing the language mid-game relabels the current line.
+- 2026-11-24: Audio plays OGG on Android (gapless loop) and M4A on iOS and macOS (no OGG decoder). Each effect has its own small `AudioPool`, so rapid token hops never wait for a free player. Music uses `FlameAudio.bgm`, which pauses while the app is in the background.
+- 2026-11-24: The pause menu has quick toggles for sound, music, vibration and theme, and a Settings button. Returning from Settings reopens the pause menu with the game still paused.
+- 2026-11-24: Motion: token hops ease in and out of each cell, a captured token returns along an eased curve, the Roll dice tumbles for the fixed 800 ms, the status banner cross-slides, dialogs pop in, and routes use fade-forwards (Android) or Cupertino (iOS) transitions. All of these respect the system's reduce-motion setting.
