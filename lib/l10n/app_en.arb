@@ -15,7 +15,7 @@
   "you": "You",
   "@you": {"description": "Name of the local player in Quick Play."},
 
-  "localGame": "Local game",
+  "localGame": "Local Game",
   "playerCount": "Players",
   "colorRed": "Red",
   "colorBlue": "Blue",

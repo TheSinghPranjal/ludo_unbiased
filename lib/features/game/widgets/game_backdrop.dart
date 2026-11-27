@@ -118,20 +118,28 @@ class _BackdropPainter extends CustomPainter {
     canvas
       ..drawOval(plaza.inflate(6), Paint()..color = c.plazaEdge)
       ..drawOval(plaza, Paint()..color = c.plaza);
+    // Paving stones laid in staggered rows, clipped to the plaza.
     final joint = Paint()
-      ..color = c.plazaEdge.withValues(alpha: .6)
+      ..color = c.plazaEdge.withValues(alpha: .7)
       ..style = PaintingStyle.stroke
       ..strokeWidth = 1.5;
-    for (var k = 1; k <= 3; k++) {
-      canvas.drawOval(
-        Rect.fromCenter(
-          center: plaza.center,
-          width: plaza.width * k / 4,
-          height: plaza.height * k / 4,
-        ),
-        joint,
-      );
+    canvas
+      ..save()
+      ..clipPath(Path()..addOval(plaza));
+    final rowH = plaza.height / 7;
+    for (var r = 0; r < 7; r++) {
+      final y = plaza.top + r * rowH;
+      canvas.drawLine(Offset(plaza.left, y), Offset(plaza.right, y), joint);
+      final stone = w / (6 + r * .6);
+      for (
+        var x = plaza.left + (r.isOdd ? stone / 2 : 0);
+        x < plaza.right;
+        x += stone
+      ) {
+        canvas.drawLine(Offset(x, y), Offset(x, y + rowH), joint);
+      }
     }
+    canvas.restore();
 
     // Bushes framing the bottom corners.
     final bush = Paint()..color = c.hillNear;
@@ -145,7 +153,88 @@ class _BackdropPainter extends CustomPainter {
       ]) {
         canvas.drawCircle(Offset(x + dir * dx * w, h * dy), r * w, bush);
       }
+      // Flowers dotted over the bush.
+      for (final (dx, dy, k) in const [
+        (.04, .86, 0),
+        (.12, .9, 1),
+        (.02, .94, 2),
+        (.17, .96, 0),
+        (.08, .99, 1),
+      ]) {
+        _flower(
+          canvas,
+          Offset(x + dir * dx * w, h * dy),
+          w * .018,
+          const [Color(0xFFFFD23F), Color(0xFFFF8FB8), Color(0xFFB9A4FF)][k],
+        );
+      }
     }
+
+    // Leaves hanging into the top corners.
+    for (final side in [0.0, 1.0]) {
+      final x = side * w;
+      final dir = side == 0 ? 1 : -1;
+      for (final (dx, dy, a, r) in const [
+        (.02, .0, .9, .09),
+        (.08, -.005, .4, .08),
+        (-.01, .04, 1.4, .08),
+        (.13, .01, .1, .06),
+        (.04, .07, 1.1, .06),
+      ]) {
+        _leaf(
+          canvas,
+          Offset(x + dir * dx * w, h * dy),
+          dir * a,
+          r * w,
+          c.hillFar,
+          c.hillNear,
+        );
+      }
+    }
+  }
+
+  void _flower(Canvas canvas, Offset at, double r, Color petal) {
+    final p = Paint()
+      ..color = c.starlight.a > 0 ? petal.withValues(alpha: .6) : petal;
+    for (var k = 0; k < 5; k++) {
+      final a = k * 2 * pi / 5;
+      canvas.drawCircle(at + Offset(cos(a), sin(a)) * r, r * .75, p);
+    }
+    canvas.drawCircle(at, r * .6, Paint()..color = const Color(0xFFFFB020));
+  }
+
+  void _leaf(
+    Canvas canvas,
+    Offset at,
+    double angle,
+    double len,
+    Color light,
+    Color dark,
+  ) {
+    final leaf = Path()
+      ..moveTo(0, 0)
+      ..quadraticBezierTo(len * .5, -len * .32, len, 0)
+      ..quadraticBezierTo(len * .5, len * .32, 0, 0)
+      ..close();
+    canvas
+      ..save()
+      ..translate(at.dx, at.dy)
+      ..rotate(angle)
+      ..drawPath(
+        leaf,
+        Paint()
+          ..shader = LinearGradient(
+            colors: [dark, light],
+          ).createShader(Rect.fromLTWH(0, -len * .3, len, len * .6)),
+      )
+      ..drawLine(
+        Offset.zero,
+        Offset(len * .9, 0),
+        Paint()
+          ..color = dark
+          ..strokeWidth = 1.2,
+      )
+      ..restore();
   }
 
   @override

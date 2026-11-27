@@ -36,7 +36,7 @@ class AppLocalizationsEn extends AppLocalizations {
   String get you => 'You';
 
   @override
-  String get localGame => 'Local game';
+  String get localGame => 'Local Game';
 
   @override
   String get playerCount => 'Players';

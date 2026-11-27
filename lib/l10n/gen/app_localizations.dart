@@ -161,7 +161,7 @@ abstract class AppLocalizations {
   /// No description provided for @localGame.
   ///
   /// In en, this message translates to:
-  /// **'Local game'**
+  /// **'Local Game'**
   String get localGame;
 
   /// No description provided for @playerCount.

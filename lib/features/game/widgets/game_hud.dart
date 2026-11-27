@@ -4,6 +4,7 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:flutter_riverpod/flutter_riverpod.dart';
 import 'package:ludo_unbiased/app/theme/app_theme.dart';
+import 'package:ludo_unbiased/app/widgets/laurel.dart';
 import 'package:ludo_unbiased/core/constants/timing.dart';
 import 'package:ludo_unbiased/features/game/models/player.dart';
 import 'package:ludo_unbiased/features/game/models/player_color.dart';
@@ -14,7 +15,8 @@ import 'package:ludo_unbiased/l10n/l10n.dart';
 /// Display font for the Game screen's chrome.
 const _display = 'Fredoka';
 
-/// Outlined, two-tone game title.
+/// Outlined game title: a crown over "Ludo", "Unbiased" on a purple
+/// ribbon, framed by laurels.
 class GameTitle extends StatelessWidget {
   /// Creates the title.
   const GameTitle({super.key});
@@ -57,17 +59,178 @@ class GameTitle extends StatelessWidget {
       header: true,
       label: context.l10n.appTitle,
       child: ExcludeSemantics(
-        child: Column(
+        child: Row(
           mainAxisSize: MainAxisSize.min,
           children: [
-            word('Ludo', 30, s.titleFill),
-            const SizedBox(height: 2),
-            word('Unbiased', 20, s.titleFill2),
+            Laurel(
+              color: s.hillNear,
+              mirrored: false,
+              width: 18,
+              height: 44,
+            ),
+            const SizedBox(width: 2),
+            Column(
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                SizedBox(
+                  width: 40,
+                  height: 22,
+                  child: CustomPaint(
+                    painter: _CrownPainter(s.goldLight, s.goldDark, s.ctaIcon),
+                  ),
+                ),
+                word('Ludo', 32, s.titleFill),
+                const SizedBox(height: 2),
+                Container(
+                  padding: const EdgeInsets.fromLTRB(10, 2, 10, 4),
+                  decoration: BoxDecoration(
+                    borderRadius: BorderRadius.circular(10),
+                    border: Border.all(color: s.titleStroke, width: 2),
+                    gradient: LinearGradient(
+                      begin: Alignment.topCenter,
+                      end: Alignment.bottomCenter,
+                      colors: [s.sideTop, s.sideBottom],
+                    ),
+                  ),
+                  child: word('Unbiased', 18, s.titleFill2),
+                ),
+              ],
+            ),
+            const SizedBox(width: 2),
+            Laurel(
+              color: s.hillNear,
+              mirrored: true,
+              width: 18,
+              height: 44,
+            ),
           ],
         ),
       ),
     );
   }
+}
+
+class _CrownPainter extends CustomPainter {
+  _CrownPainter(this.light, this.dark, this.jewel);
+
+  final Color light;
+  final Color dark;
+  final Color jewel;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final h = size.height;
+    final body = Path()
+      ..moveTo(w * .1, h * .95)
+      ..lineTo(w * .04, h * .3)
+      ..lineTo(w * .3, h * .6)
+      ..lineTo(w * .5, h * .12)
+      ..lineTo(w * .7, h * .6)
+      ..lineTo(w * .96, h * .3)
+      ..lineTo(w * .9, h * .95)
+      ..close();
+    canvas
+      ..drawPath(
+        body,
+        Paint()
+          ..shader = LinearGradient(
+            begin: Alignment.topCenter,
+            end: Alignment.bottomCenter,
+            colors: [light, dark],
+          ).createShader(Offset.zero & size),
+      )
+      ..drawPath(
+        body,
+        Paint()
+          ..color = dark
+          ..style = PaintingStyle.stroke
+          ..strokeWidth = 1.2
+          ..strokeJoin = StrokeJoin.round,
+      );
+    final ball = Paint()..color = light;
+    for (final x in const [.04, .5, .96]) {
+      canvas.drawCircle(Offset(w * x, h * (x == .5 ? .12 : .3)), 2.6, ball);
+    }
+    canvas.drawCircle(Offset(w * .5, h * .72), 3, Paint()..color = jewel);
+  }
+
+  @override
+  bool shouldRepaint(_CrownPainter old) =>
+      old.light != light || old.dark != dark || old.jewel != jewel;
+}
+
+/// A small stack of gold coins (decoration on seat pills and the stage).
+class CoinStack extends StatelessWidget {
+  /// Creates the stack.
+  const CoinStack({this.size = 24, this.coins = 3, super.key});
+
+  /// Width; height follows the number of coins.
+  final double size;
+
+  /// Number of coins in the stack.
+  final int coins;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = context.scene;
+    return ExcludeSemantics(
+      child: SizedBox(
+        width: size,
+        height: size * (.42 + coins * .2),
+        child: CustomPaint(
+          painter: _CoinsPainter(coins, s.goldLight, s.goldDark),
+        ),
+      ),
+    );
+  }
+}
+
+class _CoinsPainter extends CustomPainter {
+  _CoinsPainter(this.coins, this.light, this.dark);
+
+  final int coins;
+  final Color light;
+  final Color dark;
+
+  @override
+  void paint(Canvas canvas, Size size) {
+    final w = size.width;
+    final ch = w * .42;
+    final step = w * .2;
+    for (var i = 0; i < coins; i++) {
+      final top = size.height - ch - step - i * step;
+      final face = Rect.fromLTWH(0, top, w, ch);
+      // Rim (the coin's edge), then its face.
+      canvas
+        ..drawRRect(
+          RRect.fromRectAndRadius(
+            Rect.fromLTWH(0, top + ch / 2, w, step),
+            Radius.circular(w * .1),
+          ),
+          Paint()..color = dark,
+        )
+        ..drawOval(face.translate(0, step), Paint()..color = dark)
+        ..drawOval(
+          face,
+          Paint()
+            ..shader = LinearGradient(
+              colors: [light, dark],
+            ).createShader(face),
+        )
+        ..drawOval(
+          face.deflate(w * .12),
+          Paint()
+            ..color = dark.withValues(alpha: .45)
+            ..style = PaintingStyle.stroke
+            ..strokeWidth = 1,
+        );
+    }
+  }
+
+  @override
+  bool shouldRepaint(_CoinsPainter old) =>
+      old.coins != coins || old.light != light || old.dark != dark;
 }
 
 /// Round glossy icon button (Pause).
@@ -253,10 +416,16 @@ class SeatPill extends StatelessWidget {
     final s = context.scene;
     final colour = context.board.of(player.color);
     final p = player;
+    final style = TextStyle(
+      fontFamily: _display,
+      fontWeight: FontWeight.w700,
+      fontSize: 14,
+      color: s.onPill,
+    );
     return AnimatedContainer(
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeOutCubic,
-      padding: const EdgeInsets.fromLTRB(3, 3, 14, 3),
+      padding: const EdgeInsets.fromLTRB(3, 3, 10, 3),
       decoration: BoxDecoration(
         color: s.pill,
         borderRadius: BorderRadius.circular(30),
@@ -287,21 +456,20 @@ class SeatPill extends StatelessWidget {
                 child: Image.asset(avatarFor(p), fit: BoxFit.cover),
               ),
             ),
-            const SizedBox(width: 8),
+            const SizedBox(width: 6),
+            // The name shortens to fit; the score always shows.
             Flexible(
               child: Text(
                 '${p.color.symbol} ${p.name}'
-                '${p.kind == PlayerKind.ai ? ' ${context.l10n.aiSuffix}' : ''} '
-                '· ${p.stats.tokensHome}/4',
-                style: TextStyle(
-                  fontFamily: _display,
-                  fontWeight: FontWeight.w700,
-                  fontSize: 15,
-                  color: s.onPill,
-                  overflow: TextOverflow.ellipsis,
-                ),
+                '${p.kind == PlayerKind.ai ? ' ${context.l10n.aiSuffix}' : ''}',
+                maxLines: 1,
+                overflow: TextOverflow.ellipsis,
+                style: style,
               ),
             ),
+            Text(' · ${p.stats.tokensHome}/4', style: style),
+            const SizedBox(width: 4),
+            const CoinStack(size: 18),
           ],
         ),
       ),
@@ -589,6 +757,99 @@ class _RollButtonState extends State<RollButton>
             ),
           ),
         ),
+      ),
+    );
+  }
+}
+
+/// The stage under the board: the last roll's dice in a burst of light,
+/// flanked by the four pawns and stacks of coins.
+class DiceStage extends StatelessWidget {
+  /// Creates the stage.
+  const DiceStage({required this.face, super.key});
+
+  /// Dice face to show (1-6).
+  final int face;
+
+  @override
+  Widget build(BuildContext context) {
+    final s = context.scene;
+    final mode = Theme.of(context).brightness == Brightness.dark
+        ? 'dark'
+        : 'light';
+    return ExcludeSemantics(
+      child: LayoutBuilder(
+        builder: (context, box) {
+          final h = min<double>(box.maxHeight, 120);
+          final dice = h * 1.05;
+          final pawn = h * .95;
+          // The pawn art is narrow within its square: crop the sides.
+          Widget token(PlayerColor c) => Image.asset(
+            'assets/images/tokens/token_${c.name}_idle_$mode.png',
+            width: pawn * .62,
+            height: pawn,
+            fit: BoxFit.cover,
+          );
+          return Center(
+            child: SizedBox(
+              height: h,
+              child: FittedBox(
+                child: Row(
+                  mainAxisSize: MainAxisSize.min,
+                  crossAxisAlignment: CrossAxisAlignment.end,
+                  children: [
+                    token(PlayerColor.red),
+                    token(PlayerColor.blue),
+                    CoinStack(size: h * .36),
+                    SizedBox(width: h * .08),
+                    SizedBox(
+                      width: dice * 1.15,
+                      height: h,
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          OverflowBox(
+                            maxWidth: h * 1.8,
+                            maxHeight: h * 1.8,
+                            child: Container(
+                              decoration: BoxDecoration(
+                                shape: BoxShape.circle,
+                                gradient: RadialGradient(
+                                  colors: [
+                                    s.goldLight,
+                                    s.goldLight.withValues(alpha: .5),
+                                    s.goldLight.withValues(alpha: 0),
+                                  ],
+                                  stops: const [0, .35, 1],
+                                ),
+                              ),
+                            ),
+                          ),
+                          AnimatedSwitcher(
+                            duration: const Duration(milliseconds: 260),
+                            transitionBuilder: (child, a) =>
+                                ScaleTransition(scale: a, child: child),
+                            child: Image.asset(
+                              'assets/images/dice/dice_face_${face}_$mode.png',
+                              key: ValueKey(face),
+                              width: dice,
+                              height: dice,
+                              fit: BoxFit.contain,
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                    SizedBox(width: h * .08),
+                    CoinStack(size: h * .36),
+                    token(PlayerColor.green),
+                    token(PlayerColor.yellow),
+                  ],
+                ),
+              ),
+            ),
+          );
+        },
       ),
     );
   }

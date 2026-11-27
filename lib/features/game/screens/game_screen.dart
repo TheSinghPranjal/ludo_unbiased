@@ -1,4 +1,5 @@
 import 'dart:async';
+import 'dart:math';
 
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -10,6 +11,7 @@ import 'package:ludo_unbiased/features/game/controllers/game_controller.dart';
 import 'package:ludo_unbiased/features/game/controllers/local_game_controller.dart';
 import 'package:ludo_unbiased/features/game/models/game_event.dart';
 import 'package:ludo_unbiased/features/game/models/game_state.dart';
+import 'package:ludo_unbiased/features/game/models/player.dart';
 import 'package:ludo_unbiased/features/game/providers/game_providers.dart';
 import 'package:ludo_unbiased/features/game/services/audio_service.dart';
 import 'package:ludo_unbiased/features/game/services/status_messages.dart';
@@ -353,30 +355,68 @@ class _GameViewState extends ConsumerState<_GameView> {
             ),
           ),
           const SizedBox(height: 12),
-          Wrap(
-            spacing: 10,
-            runSpacing: 8,
-            alignment: WrapAlignment.center,
-            children: [
-              for (final p in s.players)
-                SeatPill(player: p, active: p.color == s.currentColor),
-            ],
-          ),
-          const SizedBox(height: 14),
+          // Two seats share one row (names shorten to fit); more wrap.
+          if (s.players.length <= 2)
+            Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                for (final (i, p) in s.players.indexed) ...[
+                  if (i > 0) const SizedBox(width: 8),
+                  // Share the row by label length, so a short name
+                  // leaves its spare room to a longer one.
+                  Flexible(
+                    flex:
+                        24 + p.name.length + (p.kind == PlayerKind.ai ? 5 : 0),
+                    child: SeatPill(
+                      player: p,
+                      active: p.color == s.currentColor,
+                    ),
+                  ),
+                ],
+              ],
+            )
+          else
+            Wrap(
+              spacing: 10,
+              runSpacing: 8,
+              alignment: WrapAlignment.center,
+              children: [
+                for (final p in s.players)
+                  SeatPill(player: p, active: p.color == s.currentColor),
+              ],
+            ),
+          const SizedBox(height: 12),
+          // The board sits right under the seats; what is left below it
+          // becomes the dice stage, which hides when there is no room.
           Expanded(
-            child: Center(
-              child: BoardFrame(
-                child: BoardView(
-                  controller: c,
-                  onStep: _onStep,
-                  onCapture: _onCapture,
-                  onHome: _onHome,
-                  onLeaveBase: _onLeaveBase,
-                ),
-              ),
+            child: LayoutBuilder(
+              builder: (context, box) {
+                final side = min(box.maxWidth, box.maxHeight);
+                final stage = box.maxHeight - side;
+                return Column(
+                  children: [
+                    SizedBox.square(
+                      dimension: side,
+                      child: BoardFrame(
+                        child: BoardView(
+                          controller: c,
+                          onStep: _onStep,
+                          onCapture: _onCapture,
+                          onHome: _onHome,
+                          onLeaveBase: _onLeaveBase,
+                        ),
+                      ),
+                    ),
+                    if (stage >= 64)
+                      Expanded(child: DiceStage(face: _lastDice ?? 5))
+                    else
+                      const Spacer(),
+                  ],
+                );
+              },
             ),
           ),
-          const SizedBox(height: 14),
+          const SizedBox(height: 6),
           TurnBanner(
             text: _status(context.l10n),
             textKey: const Key('status'),

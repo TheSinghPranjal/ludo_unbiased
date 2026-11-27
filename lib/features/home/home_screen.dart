@@ -55,7 +55,7 @@ class HomeScreen extends ConsumerWidget {
                             key: const Key('quickPlay'),
                             style: HomeButtonStyle.gold,
                             label: l.newGame,
-                            leading: const _PlayTriangle(),
+                            leading: const PlayTriangle(),
                             onPressed: () {
                               game.startLocal([
                                 (
@@ -327,8 +327,10 @@ class _HomeButtonState extends ConsumerState<HomeButton> {
   }
 }
 
-class _PlayTriangle extends StatelessWidget {
-  const _PlayTriangle();
+/// Red play triangle with a navy outline, for gold call-to-action buttons.
+class PlayTriangle extends StatelessWidget {
+  /// Creates the icon.
+  const PlayTriangle({super.key});
 
   @override
   Widget build(BuildContext context) {
